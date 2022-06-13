@@ -33,7 +33,13 @@ class Store {
     // function to add to the notes. and use the write function already written. and pass on new notes as the parameter to the write function.
     // get all notes and save the new notes to the list and write them all back to the file.
     addNotes(note) {
-    return this.write(note)
+        return this.read().then(existing => {
+            var notes = JSON.parse(existing)
+            console.log(notes)
+            notes.push(notes)
+            this.write(notes)
+        })
+      
     }
     // function to removes notes. take in the id parameters and look for the note associated with the id and remove the note
     
