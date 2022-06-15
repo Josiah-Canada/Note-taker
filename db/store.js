@@ -35,14 +35,20 @@ class Store {
     addNotes(note) {
         return this.read().then(existing => {
             var notes = JSON.parse(existing)
-            console.log(notes)
-            notes.push(notes)
+            notes.push(note)
             this.write(notes)
-        })
-      
-    }
-    // function to removes notes. take in the id parameters and look for the note associated with the id and remove the note
+            console.log("these are my" + notes)
+        });
     
+    };
+    // function to removes notes. take in the id parameters and look for the note associated with the id and remove the note
+    removeNotes(note) {
+        return this.read().then(removing => {
+            let remove = note.slice(removing)
+            remove.this(note)
+            console.log(note)
+        });
+    }
     
 }
 
