@@ -35,6 +35,7 @@ class Store {
     addNotes(note) {
         return this.read().then(existing => {
             var notes = JSON.parse(existing)
+            note.id = uuidv1()
             notes.push(note)
             this.write(notes)
             console.log("these are my" + notes)
@@ -44,11 +45,14 @@ class Store {
     // function to removes notes. take in the id parameters and look for the note associated with the id and remove the note
     removeNotes(note) {
         return this.read().then(removing => {
+            let id = note.id
             let remove = deleteNote(note)
             removing.slice(remove)
+            this.write(remove)
             console.log(note)
+            console.log(removing)
         });
-    }
+    };
     
 }
 
