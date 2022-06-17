@@ -44,8 +44,8 @@ class Store {
     // function to removes notes. take in the id parameters and look for the note associated with the id and remove the note
     removeNotes(note) {
         return this.read().then(removing => {
-            let remove = note.slice(removing)
-            remove.this(note)
+            let remove = deleteNote(note)
+            removing.slice(remove)
             console.log(note)
         });
     }

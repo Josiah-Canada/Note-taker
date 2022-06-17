@@ -14,8 +14,20 @@ router.get('/notes', (req, res) => {
 router.post('/notes', (req, res) => {
    store.addNotes(req.body).then(e => {
       return res.json(e)
+      title = store.deleteNotes(req.body)
+.then(m => {
+   return res.json(m)
+})      if (title && text) {
+         const newNotes = {
+            title,
+            text,
+            id: uuid(),
+         }
+      }
    });
 });
 // for the delete route you need the id from req.params.id
+
+
 
 module.exports = router
